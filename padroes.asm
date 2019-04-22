@@ -1,3 +1,7 @@
+//Desenvolvido por:
+//-Gabriel Santos	github.com/salanho
+//-Carlos Gabriel Soares github.com/gabuvns
+
 .data
 	a:	.word 0
 	teste: .asciiz "Hello World!\n"
