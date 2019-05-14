@@ -1,6 +1,6 @@
 //Desenvolvido por:
-//-Gabriel Santos	github.com/salanho
-//-Carlos Gabriel Soares github.com/gabuvns
+//-Gabriel Espírito Santo	github.com/salanho
+//-Carlos Gabriel Soares 	github.com/gabuvns
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -11,10 +11,26 @@
 	.end_macro		
 							
 //----------------------------------------------------------------------//
+//REALIZA O PUSH DE 2 REGISTRADORES NA PILHA (X28)	
+	.macro push_2 (%REGISTRADOR, %REGISTRADOR2)				
+		SUBI X28, X28, 16
+		STUR %REGISTRADOR, [X28, 8]
+		STUR %REGISTRADOR2, [X28, 16]			
+	.end_macro		
+							
+//----------------------------------------------------------------------//
 //REALIZA O POP DE 1 REGISTRADOR NA PILHA (X28)	
 	.macro pop_1 (%REGISTRADOR)				
 		LDUR %REGISTRADOR, [X28, 8]			
 		SUBI X28, X28, 8				
+	.end_macro						
+	
+//----------------------------------------------------------------------//
+//REALIZA O POP DE 2 REGISTRADOR NA PILHA (X28)	
+	.macro pop_2 (%REGISTRADOR, %REGISTRADOR2)				
+		LDUR %REGISTRADOR, [X28, 8]
+		LDUR %REGISTRADOR2, [X28, 16]
+		SUBI X28, X28, 16				
 	.end_macro						
 	
 //----------------------------------------------------------------------//
